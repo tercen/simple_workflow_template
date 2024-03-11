@@ -3,8 +3,8 @@
  "id": "0",
  "isDeleted": false,
  "rev": "",
- "description": "A basic Table and Data Step workflow. Press Play to get started.",
- "name": "Simple",
+ "description": "A default workflow with one Table Step and one Data Step. Press Play to get started.",
+ "name": "Basic Workflow",
  "acl": {
   "kind": "Acl",
   "owner": "",

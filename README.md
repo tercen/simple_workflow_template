@@ -1,1 +1,2 @@
-A simple Tercen workflow, can be used as template.
+A template to serve as a default workflow for new users. 
+It contains one Table Step and one Data Step.  
