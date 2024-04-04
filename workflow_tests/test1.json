@@ -1,10 +1,10 @@
 {
  "kind": "Workflow",
- "id": "0",
+ "id": "5",
  "isDeleted": false,
  "rev": "",
- "description": "A default workflow with one Table Step and one Data Step. Press Play to get started.",
- "name": "Basic Workflow",
+ "description": "A basic Table and Data Step workflow. Press Play to get started.",
+ "name": "test1",
  "acl": {
   "kind": "Acl",
   "owner": "",
@@ -25,6 +25,21 @@
    "kind": "Pair",
    "key": "PUBLISHED",
    "value": "true"
+  },
+  {
+   "kind": "Pair",
+   "key": "document.template.repo.url",
+   "value": "https://github.com/tercen/simple_workflow_template"
+  },
+  {
+   "kind": "Pair",
+   "key": "document.template.repo.version",
+   "value": "1.2.0"
+  },
+  {
+   "kind": "Pair",
+   "key": "document.template.repo.path",
+   "value": "Simple"
   }
  ],
  "url": {
@@ -34,7 +49,7 @@
  "version": "",
  "isPublic": false,
  "projectId": "",
- "folderId": "",
+ "folderId": "4",
  "links": [
   {
    "kind": "Link",
@@ -48,7 +63,7 @@
    "kind": "TableStep",
    "id": "0396dda7-fae2-4ffd-865b-4cee6a25cb06",
    "groupId": "",
-   "name": "Table",
+   "name": "crabs-long.csv",
    "inputs": [],
    "outputs": [
     {
@@ -62,12 +77,12 @@
     "kind": "Rectangle",
     "extent": {
      "kind": "Point",
-     "x": 88.99000000000001,
+     "x": 104.05589294433594,
      "y": 55.0
     },
     "topLeft": {
      "kind": "Point",
-     "x": 268.505,
+     "x": 260.97205352783203,
      "y": 63.5
     }
    },
@@ -83,7 +98,7 @@
     "kind": "TableStepModel",
     "relation": {
      "kind": "UnionRelation",
-     "id": "2bdc2709-ce20-4c90-a7ef-58034e577543",
+     "id": "8dcbf5c4-9b9c-4cc1-9212-602ceddd721b",
      "relations": []
     }
    }
@@ -218,8 +233,8 @@
          "kind": "GraphicalFactor",
          "factor": {
           "kind": "Factor",
-          "name": "",
-          "type": "string"
+          "name": "measurement",
+          "type": "double"
          },
          "rectangle": {
           "kind": "Rectangle",
@@ -250,7 +265,7 @@
        "kind": "GraphicalFactor",
        "factor": {
         "kind": "Factor",
-        "name": "",
+        "name": "variable",
         "type": "string"
        },
        "rectangle": {
@@ -258,7 +273,7 @@
         "extent": {
          "kind": "Point",
          "x": 0.0,
-         "y": 0.0
+         "y": 30.0
         },
         "topLeft": {
          "kind": "Point",
@@ -269,7 +284,7 @@
       }
      ],
      "rectangleSelections": [],
-     "nRows": 0
+     "nRows": 5
     },
     "filters": {
      "kind": "Filters",
@@ -312,15 +327,15 @@
        "kind": "GraphicalFactor",
        "factor": {
         "kind": "Factor",
-        "name": "",
-        "type": "string"
+        "name": "observation",
+        "type": "double"
        },
        "rectangle": {
         "kind": "Rectangle",
         "extent": {
          "kind": "Point",
-         "x": 0.0,
-         "y": 0.0
+         "x": 110.0,
+         "y": 30.0
         },
         "topLeft": {
          "kind": "Point",
@@ -331,13 +346,13 @@
       }
      ],
      "rectangleSelections": [],
-     "nRows": 0
+     "nRows": 200
     },
     "taskId": ""
    },
    "computedRelation": {
     "kind": "Relation",
-    "id": "6bbc1aec-9ad6-48b0-91d7-c3cee55f3d45"
+    "id": "0ba888d0-d327-4451-9a87-5f2cb5130ea7"
    },
    "parentDataStepId": ""
   }
