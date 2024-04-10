@@ -1,10 +1,10 @@
 {
  "kind": "Workflow",
- "id": "2",
+ "id": "3",
  "isDeleted": false,
  "rev": "",
- "description": "A default workflow with one Table Step and one Data Step. Press Play to get started.",
- "name": "Basic Workflow",
+ "description": "A simple workflow with one Table Step and one Data Step.",
+ "name": "Simple",
  "acl": {
   "kind": "Acl",
   "owner": "",

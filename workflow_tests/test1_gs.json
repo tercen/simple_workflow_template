@@ -1,6 +1,6 @@
 {
  "kind": "Workflow",
- "id": "3",
+ "id": "5",
  "isDeleted": false,
  "rev": "",
  "description": "A basic Table and Data Step workflow. Press Play to get started.",
@@ -21,11 +21,6 @@
  "urls": [],
  "tags": [],
  "meta": [
-  {
-   "kind": "Pair",
-   "key": "PUBLISHED",
-   "value": "true"
-  },
   {
    "kind": "Pair",
    "key": "document.template.repo.url",
@@ -49,7 +44,7 @@
  "version": "",
  "isPublic": false,
  "projectId": "",
- "folderId": "4",
+ "folderId": "0",
  "links": [
   {
    "kind": "Link",
@@ -161,7 +156,7 @@
    },
    "state": {
     "kind": "StepState",
-    "taskId": "4886417b3169be0101e8e0cf4bd996ed",
+    "taskId": "3769526371bce3d27da525349fb49ba1",
     "taskState": {
      "kind": "DoneState"
     }

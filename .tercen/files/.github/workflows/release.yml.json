@@ -1,10 +1,10 @@
 {
  "kind": "FileDocument",
- "id": ".github/workflows/ci.yml",
+ "id": ".github/workflows/release.yml",
  "isDeleted": false,
  "rev": "",
  "description": "",
- "name": "ci.yml",
+ "name": "release.yml",
  "acl": {
   "kind": "Acl",
   "owner": "",
@@ -29,7 +29,7 @@
  "isPublic": false,
  "projectId": "",
  "folderId": "2",
- "dataUri": "lfs/c2/76/8849902cc354396b79cbc5931be8b0b7a72717559a7eec653593858a2242",
+ "dataUri": "lfs/8d/38/4b1fe27732e9f23a8fe95806b18cb2d34e4343cdc1e993dd45f2d2c5e163",
  "metadata": {
   "kind": "FileMetadata",
   "contentType": "",
@@ -38,5 +38,5 @@
   "contentLanguage": "",
   "md5Hash": ""
  },
- "size": 1798
+ "size": 1802
 }
