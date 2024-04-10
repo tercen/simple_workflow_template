@@ -1,0 +1,75 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+' # Push events to any matching semantic tag
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: ENV
+      run: |
+        echo "REPO_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
+        echo "TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+        echo "DOCKER_IMAGE=tercen/${{ github.event.repository.name }}" >> $GITHUB_ENV
+    - name: Update container in operator JSON
+      run: |
+        jq --arg variable "$DOCKER_IMAGE:$TAG" '.container = $variable' operator.json
+    - name: Build docker image
+      run: |
+        docker build -t $DOCKER_IMAGE:$TAG .
+    - name: docker login
+      run: |
+        docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password ${{ secrets.DOCKER_HUB_PASSWORD }}
+    - name: docker push
+      run: |
+        docker push $DOCKER_IMAGE:$TAG
+        docker tag $DOCKER_IMAGE:$TAG $DOCKER_IMAGE:latest
+        docker push $DOCKER_IMAGE:latest
+    - uses: tercen/actions/start-tercen@main
+    - name: Install Template Runner
+      run: docker pull tercen/workflow_runner:latest
+    - name: Test template 
+      id: run_test
+      run: |
+        docker run -t --net=host tercen/workflow_runner:latest \
+          --templateRepo=${{ github.ref }} \
+          --templateFolder=workflow_tests \
+          --tag= \
+          --user=test \
+          --passw=test \
+          --opMem="500000000" \
+          --serviceUri=http://127.0.0.1:5400 \
+          --gitToken=${{ github.token }} 
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: TestResults
+        path: test_results.json
+        retention-days: 1
+    - name: 'Create Tercen Logs'
+      if: always()  
+      run: docker logs start-tercen_tercen_1 
+      working-directory: ${{ github.action_path }}
+    - name: Create required package.json
+      run: echo '{}' > package.json
+    - name: Build changelog
+      id: Changelog
+      uses: tercen/generate-changelog-action@master
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: ${{steps.Changelog.outputs.changelog}}
+        draft: false
+        prerelease: false
+        
