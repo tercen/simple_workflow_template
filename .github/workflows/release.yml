@@ -21,7 +21,7 @@ jobs:
         docker run -t --net=host tercen/workflow_runner:latest \
           --templateRepo=${GITHUB_REPOSITORY} \
           --templateFolder=workflow_tests \
-          --tag=${{ github.ref }} \
+          --tag=${GITHUB_REF##*/} \
           --user=test \
           --passw=test \
           --opMem="500000000" \
