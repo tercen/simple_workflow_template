@@ -3,8 +3,8 @@
  "id": "3",
  "isDeleted": false,
  "rev": "",
- "description": "A simple workflow with one Table Step and one Data Step.",
- "name": "Simple",
+ "description": "Create a new workflow.",
+ "name": "Blank",
  "acl": {
   "kind": "Acl",
   "owner": "",
@@ -19,7 +19,9 @@
   "value": ""
  },
  "urls": [],
- "tags": [],
+ "tags": [
+  "new workflow"
+ ],
  "meta": [
   {
    "kind": "Pair",
